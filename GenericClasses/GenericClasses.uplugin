@@ -1,0 +1,41 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "GenericClasses",
+	"Description": "Generic classes that can be used in any game",
+	"Category": "Other",
+	"CreatedBy": "Marcos Romano",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "GenericClasses",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"CoreUObject"
+			]
+		},
+		{
+			"Name": "GenericClassesDebug",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"BlacklistTargetConfigurations" : [
+				"Shipping"
+			]
+		},
+		{
+			"Name": "GenericClassesEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit"
+		}
+	]
+}
