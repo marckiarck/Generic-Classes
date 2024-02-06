@@ -278,3 +278,7 @@ This component is in the Details panel and its methods can be accessed there.
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8aa650a5-00e1-4681-8d08-2957389b7257)
 
+Project were this module is added will also include a DataAsset called DT_EditorComponents. In this DataAsset the user has to configure the editor component classes to decide if it is wanted to add editor components to selected objects or not (maybe the user has created a week ago a editor component for AI and now he do not need it but do not want to delete in case he need it later).
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/817e65f5-88f3-41de-b63f-9d1a5726ca58)
+
