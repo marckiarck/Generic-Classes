@@ -71,12 +71,12 @@ This module contains systems than can be useful for every project and offer ways
 ## Singleton Register
 This system allows to create a **singleton** of every Unreal class (classes that **inherits form UObject**). The user has to implement nothing to make his own classes become singletons.
 
->The singleton instances can be accesed throught **Blueprint:**
->
+The singleton instances can be accesed throught **Blueprint:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/15031513-19f6-40d7-b0fd-152fdf3b80c5)
 
->Can also be accessed in **code** calling the method:
->
+Can also be accessed in **code** calling the method:
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/dc61bae2-b599-402a-ac9f-d238e153afac)
 
 There is an **Unreal Interface** called **GC_Singleton** that can be inherited by classes to override methods called when singleton is getted, reseted and instanced by GetInstance methods.
@@ -92,42 +92,42 @@ An **object pooler** is a system that provides an instance getted from a **prepa
 The Object Pooler works with **UObjects** and **AActors** in different ways.
 
 #### Create UObjects
->To create **UObjects** in **Blueperints:**
->
+To create **UObjects** in **Blueperints:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/87b78e35-3abd-4bba-b23e-34046b699b4a)
 
->And in **code:**
->
+And in **code:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2da7a9d3-8ab2-4c87-a3d2-3350a94b4ded)
 
 #### Spawn Actors
->To create **AActors** in **Blueprints:**
->
+To create **AActors** in **Blueprints:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/f5fea255-d7f1-4093-bb4d-337401071290)
 
->And in **code:**
->
+And in **code:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/a267c3eb-5289-4e0c-b6be-85a5f53f5891)
 
 ### Object destruction
 The method to **return the objects to the pool** is also different for **AActors** and **UObjects.**
 
 #### Destroy UObjects
->To destroy **UObjects** in **Blueprints:**
->
+To destroy **UObjects** in **Blueprints:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cd14e6cb-69ec-45b9-a75b-430c53dd719e)
 
->And in **code:**
->
+And in **code:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/050617bb-90cf-49ff-8d6f-ddb3729b0ffa)
 
 #### Despawn Actors
->To destroy **AActors** in **Blueprints:**
->
+To destroy **AActors** in **Blueprints:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/3140ff22-c089-42e3-8891-412ca585165b)
 
->And in **code:**
->
+And in **code:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/6a3c393a-cd84-4441-a068-378140116925)
 
 When this methods are called a **DatatableRowHandle** can be passed as **parameter.** This parameter can be used to **customize the creation of the object**. To make this customization the created obect must **inherit** from the Unreal interface **GC_PooledObjectInterface** and override its methods.
@@ -149,9 +149,8 @@ The **overrideable methods** are:
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/339751ef-0576-4d21-b2e7-de5db8044524)
 
-----------------------------------------------------
-
-But this events are **planned to be used by its delegates** calls:
+#### Event Delegates
+However, events are **planned to be used by its delegates** calls:
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/951d6f8e-9ed6-402a-ae24-ccc54eab6c02)
 
@@ -161,7 +160,7 @@ An example of how to use them by **delegates:**
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8e82e35c-a722-4963-9abd-909fbf32e914)
 
-----------------------------------------------------
+#### Blueprint implementation
 
 This events can be implemented in **Blueprints** to inheriting from **GC_BlueprintEvent:**
 
@@ -171,14 +170,15 @@ This events can be implemented in **Blueprints** to inheriting from **GC_Bluepri
 ### Event Register
 The events must be **registered** in the **Event Register** to **start working.**
 
->This can be done in **Blueprints** calling the node **Register Event:**
->
+This can be done in **Blueprints** calling the node **Register Event:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/b35c3c18-91e9-4bc5-908f-2c86c6501b41)
 
->And in **code:**
->
+And in **code:**
+
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/78aea16c-8d0d-4575-9762-228f65410031)
 
+#### Additional nodes
 For **Blueprits** there are the nodes **Wait Delay** and **Delegate Event Tick** that implments behaviours that can be useful in diferent ways:
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e41ac618-4c67-4b2b-a5d9-a8f481175c12)
@@ -189,9 +189,8 @@ It may happend that is needed to **launch a succession of events one after anort
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e0e02d38-6636-461b-9edd-a8f353675482)
 
-----------------------------------------------------
-
-The **Event Sequence**s can be launched by **Blueprints:**
+#### Event Sequences implementation
+The **Event Sequences** can be launched by **Blueprints:**
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/56e5b142-8c5e-4b8e-9438-2b217951ea0c)
 
@@ -214,8 +213,7 @@ There is one more method called **SetConditionData()**. A condition may **need a
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/50960103-211f-4436-99e9-f3846c33ca5f)
 
-----------------------------------------------------
-
+#### Condition System nodes
 Condition System provides two nodes called **Check Condition** and **Wait Condition Success** that can be useful in many situations:
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/502c09a5-06dc-4dd5-9ac5-b28a27aa5e5d)
