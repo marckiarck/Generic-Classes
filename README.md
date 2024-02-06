@@ -49,24 +49,35 @@ Can also be accessed in **code** calling the method:
 There is an **Unreal Interface** called **GC_Singleton** that can be inherited by classes to override methods called when singleton is getted, reseted and instanced by GetInstance methods.
 
 #### Object Pooler
-An Object Pooler is a system that provides an instance getted from a prepared pool of instanes. This allows to create this instances when the project starts running and acces them in the future with out the need of create new objects (which affects to the performance). This system must be used with extreme caution beacuse the references to the objects returned to the pool will no become nullprt but will point to useless objects (beacuse they are inside the pool).
+An **object pooler** is a system that provides an instance getted from a **prepared pool of instanes**. This allows to create this instances when the project starts running and acces them in the future with out the need of create new objects (which affects to the **performance**). This system must be used with **extreme caution** beacuse the references to the objects returned to the pool will no become nullprt but will **point to useless objects** (beacuse they are inside the pool).
 
-The Object Pooler works with UObjects and AActors in diferent ways.
-To create UObjects in Blueperints:
+The Object Pooler works with **UObjects** and **AActors** in different ways.
+To create **UObjects** in **Blueperints:**
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/87b78e35-3abd-4bba-b23e-34046b699b4a)
 
-And in code:
+And in **code:**
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2da7a9d3-8ab2-4c87-a3d2-3350a94b4ded)
 
-To create AActors in Blueprints:
+To create **AActors** in **Blueprints:**
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/f5fea255-d7f1-4093-bb4d-337401071290)
 
-And in code:
+And in **code:**
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/a267c3eb-5289-4e0c-b6be-85a5f53f5891)
 
-The method to return the objects
+The method to **return the objects to the pool** is also different for **AActors** and **UObjects.**
+To destroy **UObjects** in **Blueprints:**
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cd14e6cb-69ec-45b9-a75b-430c53dd719e)
 
-When this methods are called a DatatableRowHandle can be passed as parameter. This parameter can be used to customize the creation of the object. To make this customization the created obect must inherit from the Unreal interface GC_PooledObjectInterface and override its methods.
+And in **code:**
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/050617bb-90cf-49ff-8d6f-ddb3729b0ffa)
+
+To destroy **AActors** in **Blueprints:**
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/3140ff22-c089-42e3-8891-412ca585165b)
+
+And in **code:**
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/6a3c393a-cd84-4441-a068-378140116925)
+
+When this methods are called a **DatatableRowHandle** can be passed as **parameter.** This parameter can be used to **customize the creation of the object**. To make this customization the created obect must **inherit** from the Unreal interface **GC_PooledObjectInterface** and override its methods.
 
 #### Event System
 #### Condition System
