@@ -181,6 +181,7 @@ There is one more method called **SetConditionData()**. A condition may **need a
 
 >[!Note]
 >To run condition sentences the method that should be called is CheckCondition() (it does more operations than call RunConditionSentence)
+
 >[!Note]
 >To implement condition sentences in **Blueprint** there is a class called **GC_BlueprintConditionSentence**  to inherit from it.
 
