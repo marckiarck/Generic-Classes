@@ -7,7 +7,9 @@ Repository with the generic classes that can be used in any Unreal Engine projec
 3. [Generic Classes](#GenericClassesModule)
   3.1 [Singleton Register](#GenericClassesModule-SR)
   3.2 [Object Pooler](#ObjectPooler)
-  3.3 [Event System](#EventSystem)
+  3.3 [Event System](#EventSystem) 
+   3.3.1 [EventS](#EventSystem-Events)
+   3.3.2 [Event Register](#EventSystem-EventRegister)
   3.4 [Condition System](#ConditionSystem)
   3.5 [Game Data](#GameData)
   3.6 [Data Structures](#DataStructures) 
@@ -59,7 +61,9 @@ There is an **Unreal Interface** called **GC_Singleton** that can be inherited b
 
 <a name="ObjectPooler"></a>
 #### Object Pooler
-An **object pooler** is a system that provides an instance getted from a **prepared pool of instanes**. This allows to create this instances when the project starts running and acces them in the future with out the need of create new objects (which affects to the **performance**). This system must be used with **extreme caution** beacuse the references to the objects returned to the pool will no become nullprt but will **point to useless objects** (beacuse they are inside the pool).
+An **object pooler** is a system that provides an instance getted from a **prepared pool of instanes**. This allows to create this instances when the project starts running and acces them in the future with out the need of create new objects (which affects to the **performance**). 
+> [!WARNING]
+> This system must be used with **extreme caution** beacuse the references to the objects returned to the pool will no become nullprt but will **point to useless objects** (beacuse they are inside the pool).
 
 The Object Pooler works with **UObjects** and **AActors** in different ways.
 
@@ -101,6 +105,31 @@ When this methods are called a **DatatableRowHandle** can be passed as **paramet
 
 <a name="EventSystem"></a>
 #### Event System
+This is the typical event system that always is needed to implement. This system usualy consists in atomic behaviours that provides complex behaviours when working all together. 
+
+An example could be an ability of a fighting game. The complex behaviour is the attach ability, which is made up of atomic events like play an animation, cast a sweep to detect who are affected by the attack, apply the damage and spawn paricle effects or display UI feedback. 
+
+<a name="EventSystem-Events"></a>
+##### Events
+To make this system as generic and scalable as needed in each project there is a base class called GC_Event that can be inherited to gave them the desired behaviour.
+
+The overrideable methods are:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/339751ef-0576-4d21-b2e7-de5db8044524)
+
+
+But this events are planned to be used by its delegates calls:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/951d6f8e-9ed6-402a-ae24-ccc54eab6c02)
+
+This will allow the Object Pooler to reuse finished events to create new events getting them out of the pool and clearing the delegates. This will reduce a lot the performance impact and will make them a really cheap resource.
+
+An example of how to use them by delegates:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8e82e35c-a722-4963-9abd-909fbf32e914)
+
+ <a name="EventSystem-EventRegister"></a>
+ ##### Event Register
 
 <a name="ConditionSystem"></a>
 #### Condition System
