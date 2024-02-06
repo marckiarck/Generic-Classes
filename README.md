@@ -251,10 +251,10 @@ This system allows the user to add debug messages in the code that will notify t
 ### Generic Classes Debug
 This module is conformed by debug classes that offers information of the state of the systems. It contains two types of classes:
 
-##### Debugger Categories
+#### Debugger Categories
 All the debugger categories of the systems implemented in Generic Classes module. This categories allows to consult launched and registered events, classes made singleton the state of the pools of the Object Pooler,...
 
-##### Debug Objects
+#### Debug Objects
 >[!Note]
 >This system is currently being developed and is planned to make it become bigger and more useful
 
