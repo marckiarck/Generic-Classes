@@ -10,7 +10,8 @@ Repository with the generic classes that can be used in any Unreal Engine projec
   3.3 [Event System](#EventSystem) 
    3.3.1 [EventS](#EventSystem-Events)
    3.3.2 [Event Register](#EventSystem-EventRegister)
-  3.4 [Condition System](#ConditionSystem)
+   3.3.3 [Event Sequence](#EventSystem-EventSequence)
+  3.4 [Condition System](#ConditionSystem) 
   3.5 [Game Data](#GameData)
   3.6 [Data Structures](#DataStructures) 
   3.7 [Debug System](#DebugSystem) 
@@ -147,6 +148,20 @@ And in code:
 For Blueprits there are the nodes Wait Delay and Delegate Event Tick that implments behaviours that can be useful in diferent ways:
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e41ac618-4c67-4b2b-a5d9-a8f481175c12)
+
+<a name="EventSystem-EventSequence"></a>
+##### Event Sequence
+It may happend that is needed to launch a succession of events one after anorther. To make this situation as light as possible there is the Event Sequence. By creating a DataAsset of GC_EventSequenceDataAsset and customizing it, the Event Sequences can be configurated.
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e0e02d38-6636-461b-9edd-a8f353675482)
+
+The Event Sequences can be launched by Blueprints:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/56e5b142-8c5e-4b8e-9438-2b217951ea0c)
+
+And by code:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2d9530df-04ee-4c32-a809-6187a1040d0c)
 
 <a name="ConditionSystem"></a>
 #### Condition System
