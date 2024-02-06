@@ -30,6 +30,7 @@ Repository with the generic classes that can be used in any Unreal Engine projec
   
 4. [Generic Classes Debug](#GenericClassesDebugModule)
 5. [Generic Classes Editor](#GenericClassesEditorModule)
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.1 [Editor Component System](#EditorComponent)
   
 <a name="HowTo"></a>
@@ -272,15 +273,30 @@ This is a module that contains tools that is going to be useful for thigs relate
 
 <a name="EditorComponent"></a>
 ### Editor Component System
-This system ofer a parent class called GC_EditorComponent. This is an actor component that is going to be added to the objects selected in the editor. This component is not serialized and will not be saved. Inside this editor components the user can implement methods that will be useful in editor but there is no need to have them in the shipping build (like clone objects or safe destroying them).
+This system ofer a parent class called **GC_EditorComponent**. This is an **actor component** that is going to be **added to the objects selected in the editor**. This component is **not serialized** and **will not be saved**. Inside this editor components the user can implement methods that will be useful in editor but there is no need to have them in the shipping build (like clone objects or safe destroying them).
 
-The GC_EditorComponent has a method called IsValidComponent that can be overriden to check if the editor component should be added to the selected object or not
+The **GC_EditorComponent** has a method called **IsValidComponent()** that can be overriden to **check** if the editor component **should be added** to the **selected object** or not.
 
-This component is in the Details panel and its methods can be accessed there.
+This component is **accesible** in the **Details panel** and its methods can be accessed there.
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8aa650a5-00e1-4681-8d08-2957389b7257)
 
-Project were this module is added will also include a DataAsset called DT_EditorComponents. In this DataAsset the user has to configure the editor component classes to decide if it is wanted to add editor components to selected objects or not (maybe the user has created a week ago a editor component for AI and now he do not need it but do not want to delete in case he need it later).
+Projects were this module is added will also include a **DataAsset** called **DT_EditorComponents**. In this DataAsset the user has to **configure the editor component classes** to decide if it is wanted to add editor components to selected objects or not (maybe the user has created a week ago a editor component for AI and now he do not need it but do not want to delete in case he need it later).
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/817e65f5-88f3-41de-b63f-9d1a5726ca58)
 
+### K2Node_GC_BaseNode
+This is a class that inherits from K2Node. K2Node_GC_BaseNode is implemented to allow create a node from any function. The node created using the Base Node will create all the parameters of the function and the delegates also (even delegates with parameters).
+
+There are some functions that can be extended to Blueprints just adding the BlueprintCallable UFUNCTION specifier. The Base Node exists to offer a easy way to expose to Blueprints this functions.
+
+To use K2Node_GC_BaseNode the user just need to inherit from it and override the method called GetMainNodeFunction. Here is an example of how to override this method:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/20ef2568-89e4-469d-8bef-772cdd464f0c)
+
+The function used in classes that inherits from this class can be modified and the node will fit to its new signature, but all the Blueprints were the node of the modified function is used should be recompiled to work again.
+
+>[!Warning]
+>K2Nodes are very unscalables by default. The GetNodeTitle(), GetTooltipText() and GetMenuCategory() methods must be overriden when inheriting from K2Node_GC_BaseNode.
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/bb21e219-968b-49cd-acb7-3ddff7af2fb6)
