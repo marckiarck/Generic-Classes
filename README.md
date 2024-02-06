@@ -4,7 +4,8 @@ Repository with the generic classes that can be used in any Unreal Engine projec
 ## Table of Contents
 
 > 1. [How to add this plugin to your project](#HowTo)
-> 2. [Modules].(#ModulesPlugin)
+> 1. [Modules](#ModulesPlugin)
+>   2.1 [Generic Classes](#GenericClassesModule)
 
 <a name="HowTo"></a>
 ## How to add this plugin to your project
@@ -28,3 +29,6 @@ The plugins is consolidated by three modules:
 - **Generic Classes:** This is the module with the principal classes of the plugin. Here is where all the systems that will be used in the project are stored. In the shipping build this is the only modue that is going to be builded.
 - **Generic Classes Debug:** This is a module that contains debug tools of the Generic Classes modules. It can be used to debug the systems and see the state of them during the execution of the program.
 - **Generic Classes Editor:** This module is focused on provide tools to make easier and more confortable the implementation of the systems in Generic Classes. This tools are designed to be useful to systems that do not belong to this plugin.
+
+<a name="GenericClassesModule"></a>
+### Generic Classes
