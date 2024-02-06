@@ -190,12 +190,49 @@ Condition System provides two nodes called **Check Condition** and **Wait Condit
 
 <a name="GameData"></a>
 #### Game Data
+In all projects there is always the need to **store** some **data** to obtain them later and make operations (like the player or an array of enemies). The **Game Data** is a class created to **solve the problem** of implement a new class of this kind in every project. **Game Data** offers an space to **store** data and 
+**access** them in a fast way with no need of implementing anything.
+
+Game Data has the methods **SaveData** and **GetData** to save and recover data.
+
+This methods can be called in **Blueprints:**
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/c70d2a80-367c-4a0a-be6d-371e35a6d894)
+
+And in **code:**
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/43e99473-f681-42c5-a564-40bc7effc37f)
+
+##### Data Actor Component
+To make as **confortable** as possible to add **Actors** to the **Game Data** there is an **actor component** called **DataActorComponent** that adds the actor to the Game Data when it is spawned.
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/751e6503-048f-4e3c-a72d-c37bef594785)
+
+>[!Warning]
+>This system relies a lot in the user. It will not prevent them from override data that are registered with an existing data identifier even if the class of the passed object is different.
 
 <a name="DataStructures"></a>
 #### Data Structures
+There is a folder in Generic Classes called **Data Structures**. This folder stores data structures that were **used in past projects** and could be **useful in future projects.**
+
+This data structures are:
+##### Timed Queue:
+This **queue** works like a normal queue but instead of having a FIFO behaviour, it **decides** how the queue is going to **dequeue objects based on a time value** that represents when the queued objects must leave the queue.
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/bd48e006-14c1-4972-86d2-d6d0629ec738)
+
+**To dequeue elements a "pop time" must be passed** to the queue. The queue will **push** out all the elements that were **waiting that time or less** to be expelled. The returned elements will be sorted by the remaining time in the queue.
+
+A visual example passing 3 units of "pop time" to the queue of the previous visual example:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/c2b4ca22-52f7-4611-a656-206679c1f210)
 
 <a name="DebugSystem"></a>
 #### Debug System
+>[!Note]
+>This system is currently being developed and is planned to make it become bigger and more useful
+
+This system allows the user to add debug messages in the code that will notify that something is not working as spected. Currently works the same as UE_LOG nbut adding an Slate notification.
 
 <a name="GenericClassesDebugModule"></a>
 ### Generic Classes Debug
