@@ -286,15 +286,15 @@ Projects were this module is added will also include a **DataAsset** called **DT
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/817e65f5-88f3-41de-b63f-9d1a5726ca58)
 
 ### K2Node_GC_BaseNode
-This is a class that inherits from K2Node. K2Node_GC_BaseNode is implemented to allow create a node from any function. The node created using the Base Node will create all the parameters of the function and the delegates also (even delegates with parameters).
+This is a class that **inherits from K2Node**. **K2Node_GC_BaseNode** is implemented to allow **create a node from any functio**. The **node created** using the **Base Node** will **create all** the **parameters** of the function and the **delegates** also (even delegates with parameters).
 
-There are some functions that can be extended to Blueprints just adding the BlueprintCallable UFUNCTION specifier. The Base Node exists to offer a easy way to expose to Blueprints this functions.
+There are some **functions** that **can not be extended** to Blueprints just adding the **BlueprintCallable** UFUNCTION specifier. The **Base Node** exists to offer a **easy way** to **expose to Blueprints** this functions.
 
-To use K2Node_GC_BaseNode the user just need to inherit from it and override the method called GetMainNodeFunction. Here is an example of how to override this method:
+To use **K2Node_GC_BaseNode**, the user just need to **inherit** from it and **override** the method called **GetMainNodeFunction()**. Here is an example of how to override this method:
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/20ef2568-89e4-469d-8bef-772cdd464f0c)
 
-The function used in classes that inherits from this class can be modified and the node will fit to its new signature, but all the Blueprints were the node of the modified function is used should be recompiled to work again.
+The **function** used in classes that inherits from this class **can be modified** and the **node will fit** to its new signature, but all the **Blueprints** were the node of the modified function is used should be **recompiled to work again**.
 
 >[!Warning]
 >K2Nodes are very unscalables by default. The GetNodeTitle(), GetTooltipText() and GetMenuCategory() methods must be overriden when inheriting from K2Node_GC_BaseNode.
