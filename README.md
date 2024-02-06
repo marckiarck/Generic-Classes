@@ -42,19 +42,19 @@ This a Unreal plugin, so you can add it to the project like a normal plugin. Any
 
 #### Add the files of this repository to the plugins folder
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/a947f426-14ae-4c40-ab0a-0fcf0b3e28d1)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/a947f426-14ae-4c40-ab0a-0fcf0b3e28d1)
 
 #### Add the modules to the .Target files of the project
 It is important to add the editor module in the editor .Target but not in the .Target that is going to be to the shipping build beacuse then build will fail. 
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/1c783db7-fde4-4539-b3c2-bd7462ca6089)
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cdbcd19e-f478-4d05-91e7-6eb226cd87f1)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/1c783db7-fde4-4539-b3c2-bd7462ca6089)
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cdbcd19e-f478-4d05-91e7-6eb226cd87f1)
 
 
 #### Add the plugins modules to the uproject:
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/1dbb55ff-c01a-446d-b886-4b41a85f157c)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/1dbb55ff-c01a-446d-b886-4b41a85f157c)
 
 <a name="ModulesPlugin"></a>
 ## Modules
@@ -98,6 +98,8 @@ The Object Pooler works with **UObjects** and **AActors** in different ways.
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2da7a9d3-8ab2-4c87-a3d2-3350a94b4ded)
 
+----------------------------------------------------
+
 >To create **AActors** in **Blueprints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/f5fea255-d7f1-4093-bb4d-337401071290)
@@ -115,6 +117,8 @@ The method to **return the objects to the pool** is also different for **AActors
 >And in **code:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/050617bb-90cf-49ff-8d6f-ddb3729b0ffa)
+
+----------------------------------------------------
 
 >To destroy **AActors** in **Blueprints:**
 >
@@ -141,52 +145,57 @@ To make this system as generic and scalable as needed in each project there is a
 
 The **overrideable methods** are:
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/339751ef-0576-4d21-b2e7-de5db8044524)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/339751ef-0576-4d21-b2e7-de5db8044524)
 
+----------------------------------------------------
 
 But this events are **planned to be used by its delegates** calls:
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/951d6f8e-9ed6-402a-ae24-ccc54eab6c02)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/951d6f8e-9ed6-402a-ae24-ccc54eab6c02)
 
 This will allow the **Object Pooler** to **reuse finished events** to create new events getting them out of the pool and clearing the delegates. This will **reduce** a lot the **performance impact** and will make them a really cheap resource.
 
 An example of how to use them by **delegates:**
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8e82e35c-a722-4963-9abd-909fbf32e914)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8e82e35c-a722-4963-9abd-909fbf32e914)
+
+----------------------------------------------------
 
 This events can be implemented in **Blueprints** to inheriting from **GC_BlueprintEvent:**
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/9c443c09-651c-4703-8d9f-c91c3a144ac8)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/9c443c09-651c-4703-8d9f-c91c3a144ac8)
 
 <a name="EventSystem-EventRegister"></a>
 #### Event Register
 The events must be **registered** in the **Event Register** to **start working.**
 
-This can be done in **Blueprints** calling the node **Register Event:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/b35c3c18-91e9-4bc5-908f-2c86c6501b41)
-
-And in **code:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/78aea16c-8d0d-4575-9762-228f65410031)
+>This can be done in **Blueprints** calling the node **Register Event:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/b35c3c18-91e9-4bc5-908f-2c86c6501b41)
+>
+>And in **code:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/78aea16c-8d0d-4575-9762-228f65410031)
 
 For **Blueprits** there are the nodes **Wait Delay** and **Delegate Event Tick** that implments behaviours that can be useful in diferent ways:
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e41ac618-4c67-4b2b-a5d9-a8f481175c12)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e41ac618-4c67-4b2b-a5d9-a8f481175c12)
 
 <a name="EventSystem-EventSequence"></a>
 #### Event Sequence
 It may happend that is needed to **launch a succession of events one after anorther**. To make this situation as light as possible there is the **Event Sequence**. By creating a DataAsset of **GC_EventSequenceDataAsset** and customizing it, the Event Sequences can be configurated.
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e0e02d38-6636-461b-9edd-a8f353675482)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e0e02d38-6636-461b-9edd-a8f353675482)
+
+----------------------------------------------------
 
 The **Event Sequence**s can be launched by **Blueprints:**
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/56e5b142-8c5e-4b8e-9438-2b217951ea0c)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/56e5b142-8c5e-4b8e-9438-2b217951ea0c)
 
 And by **code:**
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2d9530df-04ee-4c32-a809-6187a1040d0c)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2d9530df-04ee-4c32-a809-6187a1040d0c)
 
 <a name="ConditionSystem"></a>
 ### Condition System
@@ -194,24 +203,26 @@ The Condition System offers a wrapper to condition sentences converting them in 
 
 An example can be this Actor Spawner System (not included in the plugin) that can modifiy when to spawn an Actor based on a condition of the Condition System:
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/641d8a2c-7575-4ee7-8ee6-b19d50538c29)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/641d8a2c-7575-4ee7-8ee6-b19d50538c29)
 
 #### Condition Sentence 
 There is a class called **GC_ConditionSentence**. This is the **parent class** from which inherits the rest of the **coditions of the Condition System**. This class has a virtual method called **RunConditionSentence()** that can be **overriden** to formulate the desired condition. This class also has a **delegate** that **notifies** to the subscribed classes the **result** of this method.
 
 There is one more method called **SetConditionData()**. A condition may **need addiotnal data** to decide the result of the condition. To allow this without affecting the generic nature of the condition sentences **this method can be overriden**. Through this method each **condition sentence can handle data** out of its scope transparently to whoever invokes it.
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/50960103-211f-4436-99e9-f3846c33ca5f)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/50960103-211f-4436-99e9-f3846c33ca5f)
+
+----------------------------------------------------
+
+Condition System provides two nodes called **Check Condition** and **Wait Condition Success** that can be useful in many situations:
+
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/502c09a5-06dc-4dd5-9ac5-b28a27aa5e5d)
 
 >[!Note]
 >To run condition sentences the method that should be called is CheckCondition() (it does more operations than call RunConditionSentence)
 
 >[!Note]
 >To implement condition sentences in **Blueprint** there is a class called **GC_BlueprintConditionSentence**  to inherit from it.
-
-Condition System provides two nodes called **Check Condition** and **Wait Condition Success** that can be useful in many situations:
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/502c09a5-06dc-4dd5-9ac5-b28a27aa5e5d)
 
 <a name="GameData"></a>
 ### Game Data
@@ -220,18 +231,18 @@ In all projects there is always the need to **store** some **data** to obtain th
 
 Game Data has the methods **SaveData** and **GetData** to save and recover data.
 
-This methods can be called in **Blueprints:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/c70d2a80-367c-4a0a-be6d-371e35a6d894)
-
-And in **code:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/43e99473-f681-42c5-a564-40bc7effc37f)
+>This methods can be called in **Blueprints:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/c70d2a80-367c-4a0a-be6d-371e35a6d894)
+>
+>And in **code:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/43e99473-f681-42c5-a564-40bc7effc37f)
 
 ##### Data Actor Component
 To make as **confortable** as possible to add **Actors** to the **Game Data** there is an **actor component** called **DataActorComponent** that adds the actor to the Game Data when it is spawned.
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/751e6503-048f-4e3c-a72d-c37bef594785)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/751e6503-048f-4e3c-a72d-c37bef594785)
 
 >[!Warning]
 >This system relies a lot in the user. It will not prevent them from override data that are registered with an existing data identifier even if the class of the passed object is different.
@@ -244,13 +255,13 @@ This data structures are:
 ##### Timed Queue:
 This **queue** works like a normal queue but instead of having a FIFO behaviour, it **decides** how the queue is going to **dequeue objects based on a time value** that represents when the queued objects must leave the queue.
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/bd48e006-14c1-4972-86d2-d6d0629ec738)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/bd48e006-14c1-4972-86d2-d6d0629ec738)
 
 **To dequeue elements a "pop time" must be passed** to the queue. The queue will **push** out all the elements that were **waiting that time or less** to be expelled. The returned elements will be sorted by the remaining time in the queue.
 
 A visual example passing 3 units of "pop time" to the queue of the previous visual example:
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/c2b4ca22-52f7-4611-a656-206679c1f210)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/c2b4ca22-52f7-4611-a656-206679c1f210)
 
 <a name="DebugSystem"></a>
 ### Debug System
@@ -284,11 +295,11 @@ The **GC_EditorComponent** has a method called **IsValidComponent()** that can b
 
 This component is **accesible** in the **Details panel** and its methods can be accessed there.
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8aa650a5-00e1-4681-8d08-2957389b7257)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8aa650a5-00e1-4681-8d08-2957389b7257)
 
 Projects were this module is added will also include a **DataAsset** called **DT_EditorComponents**. In this DataAsset the user has to **configure the editor component classes** to decide if it is wanted to add editor components to selected objects or not (maybe the user has created a week ago a editor component for AI and now he do not need it but do not want to delete in case he need it later).
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/817e65f5-88f3-41de-b63f-9d1a5726ca58)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/817e65f5-88f3-41de-b63f-9d1a5726ca58)
 
 <a name="BaseNode"></a>
 ### K2Node_GC_BaseNode
@@ -298,7 +309,7 @@ There are some **functions** that **can not be extended** to Blueprints just add
 
 To use **K2Node_GC_BaseNode**, the user just need to **inherit** from it and **override** the method called **GetMainNodeFunction()**. Here is an example of how to override this method:
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/20ef2568-89e4-469d-8bef-772cdd464f0c)
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/20ef2568-89e4-469d-8bef-772cdd464f0c)
 
 The **function** used in classes that inherits from this class **can be modified** and the **node will fit** to its new signature, but all the **Blueprints** were the node of the modified function is used should be **recompiled to work again**.
 
