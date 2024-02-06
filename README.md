@@ -9,7 +9,9 @@ Repository with the generic classes that can be used in any Unreal Engine projec
   3.2 [Object Pooler](#ObjectPooler)
   3.3 [Event System](#EventSystem)
   3.4 [Condition System](#ConditionSystem)
-  3.5 [Game Data](#GameData) 
+  3.5 [Game Data](#GameData)
+  3.5 [Data Structures](#DataStructures) 
+  3.5 [Debug System](#DebugSystem) 
 5. [Generic Classes Debug](#GenericClassesDebugModule)
 6. [Generic Classes Editor](#GenericClassesEditorModule)
   
@@ -105,7 +107,11 @@ When this methods are called a **DatatableRowHandle** can be passed as **paramet
 
 <a name="GameData"></a>
 #### Game Data
+
+<a name="DataStructures"></a>
 #### Data Structures
+
+<a name="DebugSystem"></a>
 #### Debug System
 
 <a name="GenericClassesDebugModule"></a>
