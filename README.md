@@ -249,6 +249,16 @@ This system allows the user to add debug messages in the code that will notify t
 
 <a name="GenericClassesDebugModule"></a>
 ### Generic Classes Debug
+This module is conformed by debug classes that offers information of the state of the systems. It contains two types of classes:
+
+##### Debugger Categories
+All the debugger categories of the systems implemented in Generic Classes module. This categories allows to consult launched and registered events, classes made singleton the state of the pools of the Object Pooler,...
+
+##### Debug Objects
+>[!Note]
+>This system is currently being developed and is planned to make it become bigger and more useful
+
+**GC_DebugObject** is an interface designed to offer the posibility of create **debug objects** that can be used to **show debug information** in diferent ways. Currently the only system than uses this objects is the **Debug Objects Category**. This is a **debugger category** that can show data from any Debug Object. This is a category designed to make **cleaner** the **debug information showed**. To achieve this the **Debug Objects Category shows the debug information of only one Debug Object**, but the object used by the Debug Objects Category can be **switched** in any moment by using the **command EnableDebugObject(FString)** and passing it the **name of the class** of the **Debug Object** that is wanted to use as reference to the Debug Objects Category.
 
 <a name="GenericClassesEditorModule"></a>
 ### Generic Classes Editor
