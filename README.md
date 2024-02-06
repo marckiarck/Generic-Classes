@@ -64,7 +64,7 @@ There is an **Unreal Interface** called **GC_Singleton** that can be inherited b
 #### Object Pooler
 An **object pooler** is a system that provides an instance getted from a **prepared pool of instanes**. This allows to create this instances when the project starts running and acces them in the future with out the need of create new objects (which affects to the **performance**). 
 > [!WARNING]
-> This system must be used with **extreme caution** beacuse the references to the objects returned to the pool will no become nullprt but will **point to useless objects** (beacuse they are inside the pool).
+> This system must be used with **extreme caution** beacuse the references to the objects returned to the pool will no become nullprt but will **point to useless objects** (beacuse they are inside the pool). When an object is returned to the pool the **references** pointing to it must be maunally make them **point to nullptr.**
 
 The Object Pooler works with **UObjects** and **AActors** in different ways.
 
@@ -106,65 +106,81 @@ When this methods are called a **DatatableRowHandle** can be passed as **paramet
 
 <a name="EventSystem"></a>
 #### Event System
-This is the typical event system that always is needed to implement. This system usualy consists in atomic behaviours that provides complex behaviours when working all together. 
+This is the typical event system that always is needed to implement. This system usualy consists in **atomic behaviours that provides complex behaviours when they are working all together.**
 
 An example could be an ability of a fighting game. The complex behaviour is the attach ability, which is made up of atomic events like play an animation, cast a sweep to detect who are affected by the attack, apply the damage and spawn paricle effects or display UI feedback. 
 
 <a name="EventSystem-Events"></a>
 ##### Events
-To make this system as generic and scalable as needed in each project there is a base class called GC_Event that can be inherited to gave them the desired behaviour.
+To make this system as generic and scalable as needed in each project there is a base class called **GC_Event** that can be inherited to gave them the desired behaviour.
 
-The overrideable methods are:
+The **overrideable methods** are:
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/339751ef-0576-4d21-b2e7-de5db8044524)
 
 
-But this events are planned to be used by its delegates calls:
+But this events are **planned to be used by its delegates** calls:
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/951d6f8e-9ed6-402a-ae24-ccc54eab6c02)
 
-This will allow the Object Pooler to reuse finished events to create new events getting them out of the pool and clearing the delegates. This will reduce a lot the performance impact and will make them a really cheap resource.
+This will allow the **Object Pooler** to **reuse finished events** to create new events getting them out of the pool and clearing the delegates. This will **reduce** a lot the **performance impact** and will make them a really cheap resource.
 
-An example of how to use them by delegates:
+An example of how to use them by **delegates:**
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8e82e35c-a722-4963-9abd-909fbf32e914)
 
-This events can be implemented in Blueprints to inheriting from GC_BlueprintEvent:
+This events can be implemented in **Blueprints** to inheriting from **GC_BlueprintEvent:**
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/9c443c09-651c-4703-8d9f-c91c3a144ac8)
 
 <a name="EventSystem-EventRegister"></a>
 ##### Event Register
-The events must be registered in the Event Register to start working.
+The events must be **registered** in the **Event Register** to **start working.**
 
-This can be done in Blueprints calling the node Register Event:
+This can be done in **Blueprints** calling the node **Register Event:**
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/b35c3c18-91e9-4bc5-908f-2c86c6501b41)
 
-And in code:
+And in **code:**
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/78aea16c-8d0d-4575-9762-228f65410031)
 
-For Blueprits there are the nodes Wait Delay and Delegate Event Tick that implments behaviours that can be useful in diferent ways:
+For **Blueprits** there are the nodes **Wait Delay** and **Delegate Event Tick** that implments behaviours that can be useful in diferent ways:
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e41ac618-4c67-4b2b-a5d9-a8f481175c12)
 
 <a name="EventSystem-EventSequence"></a>
 ##### Event Sequence
-It may happend that is needed to launch a succession of events one after anorther. To make this situation as light as possible there is the Event Sequence. By creating a DataAsset of GC_EventSequenceDataAsset and customizing it, the Event Sequences can be configurated.
+It may happend that is needed to **launch a succession of events one after anorther**. To make this situation as light as possible there is the **Event Sequence**. By creating a DataAsset of **GC_EventSequenceDataAsset** and customizing it, the Event Sequences can be configurated.
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e0e02d38-6636-461b-9edd-a8f353675482)
 
-The Event Sequences can be launched by Blueprints:
+The **Event Sequence**s can be launched by **Blueprints:**
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/56e5b142-8c5e-4b8e-9438-2b217951ea0c)
 
-And by code:
+And by **code:**
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2d9530df-04ee-4c32-a809-6187a1040d0c)
 
 <a name="ConditionSystem"></a>
 #### Condition System
+The Condition System offers a wrapper to condition sentences converting them in UObjects. This allows conditions to be integrated into other systems in a generic and scalable way.
+
+An example can be this Actor Spawner System (not included in the plugin) that can modifiy when to spawn an Actor based on a condition of the Condition System:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/641d8a2c-7575-4ee7-8ee6-b19d50538c29)
+
+##### Condition Sentence 
+There is a class called **GC_ConditionSentence**. This is the **parent class** from which inherits the rest of the **coditions of the Condition System**. This class has a virtual method called **RunConditionSentence()** that can be **overriden** to formulate the desired condition. This class also has a **delegate** that **notifies** to the subscribed classes the **result** of this method.
+
+There is one more method called **SetConditionData()**. A condition may **need addiotnal data** to decide the result of the condition. To allow this without affecting the generic nature of the condition sentences **this method can be overriden**. Through this method each **condition sentence can handle data** out of its scope transparently to whoever invokes it.
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/50960103-211f-4436-99e9-f3846c33ca5f)
+
+
+>[!Note]
+>To run condition sentences the method that should be called is CheckCondition() (it does more operations than call RunConditionSentence)
 
 <a name="GameData"></a>
 #### Game Data
