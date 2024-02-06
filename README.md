@@ -274,6 +274,8 @@ This is a module that contains tools that is going to be useful for thigs relate
 ### Editor Component System
 This system ofer a parent class called GC_EditorComponent. This is an actor component that is going to be added to the objects selected in the editor. This component is not serialized and will not be saved. Inside this editor components the user can implement methods that will be useful in editor but there is no need to have them in the shipping build (like clone objects or safe destroying them).
 
+The GC_EditorComponent has a method called IsValidComponent that can be overriden to check if the editor component should be added to the selected object or not
+
 This component is in the Details panel and its methods can be accessed there.
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8aa650a5-00e1-4681-8d08-2957389b7257)
