@@ -4,8 +4,10 @@ Repository with the generic classes that can be used in any Unreal Engine projec
 ## Table of Contents
 
 > 1. [How to add this plugin to your project](#HowTo)
-> 1. [Modules](#ModulesPlugin)
->   2.1 [Generic Classes](#GenericClassesModule)
+> 2. [Modules](#ModulesPlugin)
+> 3. [Generic Classes](#GenericClassesModule)
+> 4. [Generic Classes Debug](#GenericClassesDebugModule)
+> 5. [Generic Classes Editor](#GenericClassesEditorModule)
 
 <a name="HowTo"></a>
 ## How to add this plugin to your project
@@ -32,3 +34,9 @@ The plugins is consolidated by three modules:
 
 <a name="GenericClassesModule"></a>
 ### Generic Classes
+
+<a name="GenericClassesDebugModule"></a>
+### Generic Classes Debug
+
+<a name="GenericClassesEditorModule"></a>
+### Generic Classes Editor
