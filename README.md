@@ -29,9 +29,12 @@ Repository with the generic classes that can be used in any Unreal Engine projec
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.7 [Debug System](#DebugSystem) 
   
 4. [Generic Classes Debug](#GenericClassesDebugModule)
+   
 5. [Generic Classes Editor](#GenericClassesEditorModule)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.1 [Editor Component System](#EditorComponent)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.1 [K2Node_GC_BaseNode](#BaseNode)
   
 <a name="HowTo"></a>
 ## How to add this plugin to your project
@@ -285,6 +288,7 @@ Projects were this module is added will also include a **DataAsset** called **DT
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/817e65f5-88f3-41de-b63f-9d1a5726ca58)
 
+<a name="BaseNode"></a>
 ### K2Node_GC_BaseNode
 This is a class that **inherits from K2Node**. **K2Node_GC_BaseNode** is implemented to allow **create a node from any functio**. The **node created** using the **Base Node** will **create all** the **parameters** of the function and the **delegates** also (even delegates with parameters).
 
