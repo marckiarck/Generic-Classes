@@ -68,7 +68,7 @@ The plugins is consolidated by **three modules:**
 This module contains systems than can be useful for every project and offer ways to implement behaviors and design patterns in a simple and scalable way (like Singletons)
 
 <a name="GenericClassesModule-SR"></a>
-### Singleton Register
+## Singleton Register
 This system allows to create a **singleton** of every Unreal class (classes that **inherits form UObject**). The user has to implement nothing to make his own classes become singletons.
 
 >The singleton instances can be accesed throught **Blueprint:**
@@ -85,7 +85,7 @@ There is an **Unreal Interface** called **GC_Singleton** that can be inherited b
 > **Disclaimer**: the singletons obtainer this way ensures that the user gets the same instance of an object always the classes are accessed by the Singleton Register system, but **the user can create other instances** of that classes and is up to the user whether this should be done or not.
 
 <a name="ObjectPooler"></a>
-### Object Pooler
+## Object Pooler
 An **object pooler** is a system that provides an instance getted from a **prepared pool of instanes**. This allows to create this instances when the project starts running and acces them in the future with out the need of create new objects (which affects to the **performance**). 
 
 The Object Pooler works with **UObjects** and **AActors** in different ways.
@@ -134,13 +134,13 @@ When this methods are called a **DatatableRowHandle** can be passed as **paramet
 > This system must be used with **extreme caution** beacuse the references to the objects returned to the pool will no become nullprt but will **point to useless objects** (beacuse they are inside the pool). When an object is returned to the pool the **references** pointing to it must be maunally make them **point to nullptr.**
 
 <a name="EventSystem"></a>
-### Event System
+## Event System
 This is the typical event system that always is needed to implement. This system usualy consists in **atomic behaviours that provides complex behaviours when they are working all together.**
 
 An example could be an ability of a fighting game. The complex behaviour is the attach ability, which is made up of atomic events like play an animation, cast a sweep to detect who are affected by the attack, apply the damage and spawn paricle effects or display UI feedback. 
 
 <a name="EventSystem-Events"></a>
-#### Events
+### Events
 To make this system as generic and scalable as needed in each project there is a base class called **GC_Event** that can be inherited to gave them the desired behaviour.
 
 The **overrideable methods** are:
@@ -166,7 +166,7 @@ This events can be implemented in **Blueprints** to inheriting from **GC_Bluepri
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/9c443c09-651c-4703-8d9f-c91c3a144ac8)
 
 <a name="EventSystem-EventRegister"></a>
-#### Event Register
+### Event Register
 The events must be **registered** in the **Event Register** to **start working.**
 
 >This can be done in **Blueprints** calling the node **Register Event:**
@@ -182,7 +182,7 @@ For **Blueprits** there are the nodes **Wait Delay** and **Delegate Event Tick**
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e41ac618-4c67-4b2b-a5d9-a8f481175c12)
 
 <a name="EventSystem-EventSequence"></a>
-#### Event Sequence
+### Event Sequence
 It may happend that is needed to **launch a succession of events one after anorther**. To make this situation as light as possible there is the **Event Sequence**. By creating a DataAsset of **GC_EventSequenceDataAsset** and customizing it, the Event Sequences can be configurated.
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e0e02d38-6636-461b-9edd-a8f353675482)
@@ -198,14 +198,14 @@ And by **code:**
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2d9530df-04ee-4c32-a809-6187a1040d0c)
 
 <a name="ConditionSystem"></a>
-### Condition System
+## Condition System
 The Condition System offers a wrapper to condition sentences converting them in UObjects. This allows conditions to be integrated into other systems in a generic and scalable way.
 
 An example can be this Actor Spawner System (not included in the plugin) that can modifiy when to spawn an Actor based on a condition of the Condition System:
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/641d8a2c-7575-4ee7-8ee6-b19d50538c29)
 
-#### Condition Sentence 
+### Condition Sentence 
 There is a class called **GC_ConditionSentence**. This is the **parent class** from which inherits the rest of the **coditions of the Condition System**. This class has a virtual method called **RunConditionSentence()** that can be **overriden** to formulate the desired condition. This class also has a **delegate** that **notifies** to the subscribed classes the **result** of this method.
 
 There is one more method called **SetConditionData()**. A condition may **need addiotnal data** to decide the result of the condition. To allow this without affecting the generic nature of the condition sentences **this method can be overriden**. Through this method each **condition sentence can handle data** out of its scope transparently to whoever invokes it.
@@ -225,7 +225,7 @@ Condition System provides two nodes called **Check Condition** and **Wait Condit
 >To implement condition sentences in **Blueprint** there is a class called **GC_BlueprintConditionSentence**  to inherit from it.
 
 <a name="GameData"></a>
-### Game Data
+## Game Data
 In all projects there is always the need to **store** some **data** to obtain them later and make operations (like the player or an array of enemies). The **Game Data** is a class created to **solve the problem** of implement a new class of this kind in every project. **Game Data** offers an space to **store** data and 
 **access** them in a fast way with no need of implementing anything.
 
@@ -239,7 +239,7 @@ Game Data has the methods **SaveData** and **GetData** to save and recover data.
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/43e99473-f681-42c5-a564-40bc7effc37f)
 
-##### Data Actor Component
+### Data Actor Component
 To make as **confortable** as possible to add **Actors** to the **Game Data** there is an **actor component** called **DataActorComponent** that adds the actor to the Game Data when it is spawned.
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/751e6503-048f-4e3c-a72d-c37bef594785)
@@ -248,11 +248,11 @@ To make as **confortable** as possible to add **Actors** to the **Game Data** th
 >This system relies a lot in the user. It will not prevent them from override data that are registered with an existing data identifier even if the class of the passed object is different.
 
 <a name="DataStructures"></a>
-### Data Structures
+## Data Structures
 There is a folder in Generic Classes called **Data Structures**. This folder stores data structures that were **used in past projects** and could be **useful in future projects.**
 
 This data structures are:
-##### Timed Queue:
+### Timed Queue:
 This **queue** works like a normal queue but instead of having a FIFO behaviour, it **decides** how the queue is going to **dequeue objects based on a time value** that represents when the queued objects must leave the queue.
 
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/bd48e006-14c1-4972-86d2-d6d0629ec738)
@@ -264,7 +264,7 @@ A visual example passing 3 units of "pop time" to the queue of the previous visu
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/c2b4ca22-52f7-4611-a656-206679c1f210)
 
 <a name="DebugSystem"></a>
-### Debug System
+## Debug System
 >[!Note]
 >This system is currently being developed and is planned to make it become bigger and more useful
 
@@ -274,10 +274,10 @@ This system allows the user to add debug messages in the code that will notify t
 ## Generic Classes Debug
 This module is conformed by debug classes that offers information of the state of the systems. It contains two types of classes:
 
-#### Debugger Categories
+### Debugger Categories
 All the debugger categories of the systems implemented in Generic Classes module. This categories allows to consult launched and registered events, classes made singleton the state of the pools of the Object Pooler,...
 
-#### Debug Objects
+### Debug Objects
 >[!Note]
 >This system is currently being developed and is planned to make it become bigger and more useful
 
@@ -288,7 +288,7 @@ All the debugger categories of the systems implemented in Generic Classes module
 This is a module that contains tools that is going to be useful for thigs related with the editor. Currently it has two systems:
 
 <a name="EditorComponent"></a>
-### Editor Component System
+## Editor Component System
 This system ofer a parent class called **GC_EditorComponent**. This is an **actor component** that is going to be **added to the objects selected in the editor**. This component is **not serialized** and **will not be saved**. Inside this editor components the user can implement methods that will be useful in editor but there is no need to have them in the shipping build (like clone objects or safe destroying them).
 
 The **GC_EditorComponent** has a method called **IsValidComponent()** that can be overriden to **check** if the editor component **should be added** to the **selected object** or not.
@@ -302,7 +302,7 @@ Projects were this module is added will also include a **DataAsset** called **DT
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/817e65f5-88f3-41de-b63f-9d1a5726ca58)
 
 <a name="BaseNode"></a>
-### K2Node_GC_BaseNode
+## K2Node_GC_BaseNode
 This is a class that **inherits from K2Node**. **K2Node_GC_BaseNode** is implemented to allow **create a node from any functio**. The **node created** using the **Base Node** will **create all** the **parameters** of the function and the **delegates** also (even delegates with parameters).
 
 There are some **functions** that **can not be extended** to Blueprints just adding the **BlueprintCallable** UFUNCTION specifier. The **Base Node** exists to offer a **easy way** to **expose to Blueprints** this functions.
