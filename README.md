@@ -6,7 +6,7 @@ Repository with the generic classes that can be used in any Unreal Engine projec
 > 1. [How to add this plugin to your project](#HowTo)
 > 2. [Modules](#ModulesPlugin)
 > 3. [Generic Classes](#GenericClassesModule)
-> 4. [Singleton Register](#SingetonRegister)
+> 4. [Singleton Register](#GenericClassesModule-SR)
 > 5. [Object Pooler](#ObjectPooler)
 > 6. [Generic Classes Debug](#GenericClassesDebugModule)
 > 7. [Generic Classes Editor](#GenericClassesEditorModule)
@@ -38,7 +38,7 @@ The plugins is consolidated by three modules:
 ### Generic Classes
 This module contains systems than can be useful for every project and offer ways to implement behaviors and design patterns in a simple and scalable way (like Singletons)
 
-<a name="SingetonRegister"></a>
+<a name="GenericClassesModule-SR"></a>
 #### Singleton Register
 This system allows to create a **singleton** of every Unreal class (classes that **inherits form UObject**). The user has to implement nothing to make his own classes become singletons. Even so I mut make a **disclaimer**: the singletons obtainer this way ensures that the user gets the same instance of an object always the classes are accessed by the Singleton Register system, but **the user can create other instances** of that classes and is up to the user whether this should be done or not.
 
