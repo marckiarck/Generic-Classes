@@ -30,39 +30,41 @@ Repository with the generic classes that can be used in any Unreal Engine projec
   
 4. [Generic Classes Debug](#GenericClassesDebugModule)
 5. [Generic Classes Editor](#GenericClassesEditorModule)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.1 [Editor Component System](#EditorComponent)
   
 <a name="HowTo"></a>
 ## How to add this plugin to your project
 This a Unreal plugin, so you can add it to the project like a normal plugin. Anyway, below is an explanation of the steps to follow to install the plugin.
 
 #### Add the files of this repository to the plugins folder
+
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/a947f426-14ae-4c40-ab0a-0fcf0b3e28d1)
 
 #### Add the modules to the .Target files of the project
 It is important to add the editor module in the editor .Target but not in the .Target that is going to be to the shipping build beacuse then build will fail. 
+
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/1c783db7-fde4-4539-b3c2-bd7462ca6089)
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cdbcd19e-f478-4d05-91e7-6eb226cd87f1)
 
 
 #### Add the plugins modules to the uproject:
+
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/1dbb55ff-c01a-446d-b886-4b41a85f157c)
 
 <a name="ModulesPlugin"></a>
 ## Modules
-The plugins is consolidated by three modules:
+The plugins is consolidated by **three modules:**
 - **Generic Classes:** This is the module with the principal classes of the plugin. Here is where all the systems that will be used in the project are stored. In the shipping build this is the only modue that is going to be builded.
 - **Generic Classes Debug:** This is a module that contains debug tools of the Generic Classes modules. It can be used to debug the systems and see the state of them during the execution of the program.
 - **Generic Classes Editor:** This module is focused on provide tools to make easier and more confortable the implementation of the systems in Generic Classes. This tools are designed to be useful to systems that do not belong to this plugin.
 
 <a name="GenericClassesModule"></a>
-### Generic Classes
+## Generic Classes
 This module contains systems than can be useful for every project and offer ways to implement behaviors and design patterns in a simple and scalable way (like Singletons)
 
 <a name="GenericClassesModule-SR"></a>
-#### Singleton Register
+### Singleton Register
 This system allows to create a **singleton** of every Unreal class (classes that **inherits form UObject**). The user has to implement nothing to make his own classes become singletons.
-> [!WARNING]
-> **Disclaimer**: the singletons obtainer this way ensures that the user gets the same instance of an object always the classes are accessed by the Singleton Register system, but **the user can create other instances** of that classes and is up to the user whether this should be done or not.
 
 The singleton instances can be accesed throught **Blueprint:**
 
@@ -73,11 +75,12 @@ Can also be accessed in **code** calling the method:
 
 There is an **Unreal Interface** called **GC_Singleton** that can be inherited by classes to override methods called when singleton is getted, reseted and instanced by GetInstance methods.
 
-<a name="ObjectPooler"></a>
-#### Object Pooler
-An **object pooler** is a system that provides an instance getted from a **prepared pool of instanes**. This allows to create this instances when the project starts running and acces them in the future with out the need of create new objects (which affects to the **performance**). 
 > [!WARNING]
-> This system must be used with **extreme caution** beacuse the references to the objects returned to the pool will no become nullprt but will **point to useless objects** (beacuse they are inside the pool). When an object is returned to the pool the **references** pointing to it must be maunally make them **point to nullptr.**
+> **Disclaimer**: the singletons obtainer this way ensures that the user gets the same instance of an object always the classes are accessed by the Singleton Register system, but **the user can create other instances** of that classes and is up to the user whether this should be done or not.
+
+<a name="ObjectPooler"></a>
+### Object Pooler
+An **object pooler** is a system that provides an instance getted from a **prepared pool of instanes**. This allows to create this instances when the project starts running and acces them in the future with out the need of create new objects (which affects to the **performance**). 
 
 The Object Pooler works with **UObjects** and **AActors** in different ways.
 
@@ -117,14 +120,17 @@ And in **code:**
 
 When this methods are called a **DatatableRowHandle** can be passed as **parameter.** This parameter can be used to **customize the creation of the object**. To make this customization the created obect must **inherit** from the Unreal interface **GC_PooledObjectInterface** and override its methods.
 
+> [!WARNING]
+> This system must be used with **extreme caution** beacuse the references to the objects returned to the pool will no become nullprt but will **point to useless objects** (beacuse they are inside the pool). When an object is returned to the pool the **references** pointing to it must be maunally make them **point to nullptr.**
+
 <a name="EventSystem"></a>
-#### Event System
+### Event System
 This is the typical event system that always is needed to implement. This system usualy consists in **atomic behaviours that provides complex behaviours when they are working all together.**
 
 An example could be an ability of a fighting game. The complex behaviour is the attach ability, which is made up of atomic events like play an animation, cast a sweep to detect who are affected by the attack, apply the damage and spawn paricle effects or display UI feedback. 
 
 <a name="EventSystem-Events"></a>
-##### Events
+#### Events
 To make this system as generic and scalable as needed in each project there is a base class called **GC_Event** that can be inherited to gave them the desired behaviour.
 
 The **overrideable methods** are:
@@ -147,7 +153,7 @@ This events can be implemented in **Blueprints** to inheriting from **GC_Bluepri
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/9c443c09-651c-4703-8d9f-c91c3a144ac8)
 
 <a name="EventSystem-EventRegister"></a>
-##### Event Register
+#### Event Register
 The events must be **registered** in the **Event Register** to **start working.**
 
 This can be done in **Blueprints** calling the node **Register Event:**
@@ -163,7 +169,7 @@ For **Blueprits** there are the nodes **Wait Delay** and **Delegate Event Tick**
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e41ac618-4c67-4b2b-a5d9-a8f481175c12)
 
 <a name="EventSystem-EventSequence"></a>
-##### Event Sequence
+#### Event Sequence
 It may happend that is needed to **launch a succession of events one after anorther**. To make this situation as light as possible there is the **Event Sequence**. By creating a DataAsset of **GC_EventSequenceDataAsset** and customizing it, the Event Sequences can be configurated.
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e0e02d38-6636-461b-9edd-a8f353675482)
@@ -177,14 +183,14 @@ And by **code:**
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2d9530df-04ee-4c32-a809-6187a1040d0c)
 
 <a name="ConditionSystem"></a>
-#### Condition System
+### Condition System
 The Condition System offers a wrapper to condition sentences converting them in UObjects. This allows conditions to be integrated into other systems in a generic and scalable way.
 
 An example can be this Actor Spawner System (not included in the plugin) that can modifiy when to spawn an Actor based on a condition of the Condition System:
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/641d8a2c-7575-4ee7-8ee6-b19d50538c29)
 
-##### Condition Sentence 
+#### Condition Sentence 
 There is a class called **GC_ConditionSentence**. This is the **parent class** from which inherits the rest of the **coditions of the Condition System**. This class has a virtual method called **RunConditionSentence()** that can be **overriden** to formulate the desired condition. This class also has a **delegate** that **notifies** to the subscribed classes the **result** of this method.
 
 There is one more method called **SetConditionData()**. A condition may **need addiotnal data** to decide the result of the condition. To allow this without affecting the generic nature of the condition sentences **this method can be overriden**. Through this method each **condition sentence can handle data** out of its scope transparently to whoever invokes it.
@@ -202,7 +208,7 @@ Condition System provides two nodes called **Check Condition** and **Wait Condit
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/502c09a5-06dc-4dd5-9ac5-b28a27aa5e5d)
 
 <a name="GameData"></a>
-#### Game Data
+### Game Data
 In all projects there is always the need to **store** some **data** to obtain them later and make operations (like the player or an array of enemies). The **Game Data** is a class created to **solve the problem** of implement a new class of this kind in every project. **Game Data** offers an space to **store** data and 
 **access** them in a fast way with no need of implementing anything.
 
@@ -225,7 +231,7 @@ To make as **confortable** as possible to add **Actors** to the **Game Data** th
 >This system relies a lot in the user. It will not prevent them from override data that are registered with an existing data identifier even if the class of the passed object is different.
 
 <a name="DataStructures"></a>
-#### Data Structures
+### Data Structures
 There is a folder in Generic Classes called **Data Structures**. This folder stores data structures that were **used in past projects** and could be **useful in future projects.**
 
 This data structures are:
@@ -241,14 +247,14 @@ A visual example passing 3 units of "pop time" to the queue of the previous visu
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/c2b4ca22-52f7-4611-a656-206679c1f210)
 
 <a name="DebugSystem"></a>
-#### Debug System
+### Debug System
 >[!Note]
 >This system is currently being developed and is planned to make it become bigger and more useful
 
 This system allows the user to add debug messages in the code that will notify that something is not working as spected. Currently works the same as UE_LOG nbut adding an Slate notification.
 
 <a name="GenericClassesDebugModule"></a>
-### Generic Classes Debug
+## Generic Classes Debug
 This module is conformed by debug classes that offers information of the state of the systems. It contains two types of classes:
 
 #### Debugger Categories
@@ -261,4 +267,14 @@ All the debugger categories of the systems implemented in Generic Classes module
 **GC_DebugObject** is an interface designed to offer the posibility of create **debug objects** that can be used to **show debug information** in diferent ways. Currently the only system than uses this objects is the **Debug Objects Category**. This is a **debugger category** that can show data from any Debug Object. This is a category designed to make **cleaner** the **debug information showed**. To achieve this the **Debug Objects Category shows the debug information of only one Debug Object**, but the object used by the Debug Objects Category can be **switched** in any moment by using the **command EnableDebugObject(FString)** and passing it the **name of the class** of the **Debug Object** that is wanted to use as reference to the Debug Objects Category.
 
 <a name="GenericClassesEditorModule"></a>
-### Generic Classes Editor
+## Generic Classes Editor
+This is a module that contains tools that is going to be useful for thigs related with the editor. Currently it has two systems:
+
+<a name="EditorComponent"></a>
+### Editor Component System
+This system ofer a parent class called GC_EditorComponent. This is an actor component that is going to be added to the objects selected in the editor. This component is not serialized and will not be saved. Inside this editor components the user can implement methods that will be useful in editor but there is no need to have them in the shipping build (like clone objects or safe destroying them).
+
+This component is in the Details panel and its methods can be accessed there.
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8aa650a5-00e1-4681-8d08-2957389b7257)
+
