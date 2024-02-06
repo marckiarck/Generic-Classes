@@ -128,8 +128,25 @@ An example of how to use them by delegates:
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8e82e35c-a722-4963-9abd-909fbf32e914)
 
+This events can be implemented in Blueprints to inheriting from GC_BlueprintEvent:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/9c443c09-651c-4703-8d9f-c91c3a144ac8)
+
 <a name="EventSystem-EventRegister"></a>
 ##### Event Register
+The events must be registered in the Event Register to start working.
+
+This can be done in Blueprints calling the node Register Event:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/b35c3c18-91e9-4bc5-908f-2c86c6501b41)
+
+And in code:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/78aea16c-8d0d-4575-9762-228f65410031)
+
+For Blueprits there are the nodes Wait Delay and Delegate Event Tick that implments behaviours that can be useful in diferent ways:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/e41ac618-4c67-4b2b-a5d9-a8f481175c12)
 
 <a name="ConditionSystem"></a>
 #### Condition System
