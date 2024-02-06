@@ -48,6 +48,7 @@ This a Unreal plugin, so you can add it to the project like a normal plugin. Any
 It is important to add the editor module in the editor .Target but not in the .Target that is going to be to the shipping build beacuse then build will fail. 
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/1c783db7-fde4-4539-b3c2-bd7462ca6089)
+
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cdbcd19e-f478-4d05-91e7-6eb226cd87f1)
 
 
@@ -70,13 +71,13 @@ This module contains systems than can be useful for every project and offer ways
 ### Singleton Register
 This system allows to create a **singleton** of every Unreal class (classes that **inherits form UObject**). The user has to implement nothing to make his own classes become singletons.
 
-The singleton instances can be accesed throught **Blueprint:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/15031513-19f6-40d7-b0fd-152fdf3b80c5)
-
-Can also be accessed in **code** calling the method:
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/dc61bae2-b599-402a-ac9f-d238e153afac)
+>The singleton instances can be accesed throught **Blueprint:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/15031513-19f6-40d7-b0fd-152fdf3b80c5)
+>
+>Can also be accessed in **code** calling the method:
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/dc61bae2-b599-402a-ac9f-d238e153afac)
 
 There is an **Unreal Interface** called **GC_Singleton** that can be inherited by classes to override methods called when singleton is getted, reseted and instanced by GetInstance methods.
 
@@ -89,39 +90,39 @@ An **object pooler** is a system that provides an instance getted from a **prepa
 
 The Object Pooler works with **UObjects** and **AActors** in different ways.
 
-To create **UObjects** in **Blueperints:**
+>To create **UObjects** in **Blueperints:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/87b78e35-3abd-4bba-b23e-34046b699b4a)
+>
+>And in **code:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2da7a9d3-8ab2-4c87-a3d2-3350a94b4ded)
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/87b78e35-3abd-4bba-b23e-34046b699b4a)
-
-And in **code:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2da7a9d3-8ab2-4c87-a3d2-3350a94b4ded)
-
-To create **AActors** in **Blueprints:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/f5fea255-d7f1-4093-bb4d-337401071290)
-
-And in **code:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/a267c3eb-5289-4e0c-b6be-85a5f53f5891)
+>To create **AActors** in **Blueprints:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/f5fea255-d7f1-4093-bb4d-337401071290)
+>
+>And in **code:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/a267c3eb-5289-4e0c-b6be-85a5f53f5891)
 
 The method to **return the objects to the pool** is also different for **AActors** and **UObjects.**
 
-To destroy **UObjects** in **Blueprints:**
+>To destroy **UObjects** in **Blueprints:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cd14e6cb-69ec-45b9-a75b-430c53dd719e)
+>
+>And in **code:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/050617bb-90cf-49ff-8d6f-ddb3729b0ffa)
 
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cd14e6cb-69ec-45b9-a75b-430c53dd719e)
-
-And in **code:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/050617bb-90cf-49ff-8d6f-ddb3729b0ffa)
-
-To destroy **AActors** in **Blueprints:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/3140ff22-c089-42e3-8891-412ca585165b)
-
-And in **code:**
-
-![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/6a3c393a-cd84-4441-a068-378140116925)
+>To destroy **AActors** in **Blueprints:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/3140ff22-c089-42e3-8891-412ca585165b)
+>
+>And in **code:**
+>
+>![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/6a3c393a-cd84-4441-a068-378140116925)
 
 When this methods are called a **DatatableRowHandle** can be passed as **parameter.** This parameter can be used to **customize the creation of the object**. To make this customization the created obect must **inherit** from the Unreal interface **GC_PooledObjectInterface** and override its methods.
 
