@@ -3,21 +3,33 @@ Repository with the generic classes that can be used in any Unreal Engine projec
 
 ## Table of Contents
 1. [How to add this plugin to your project](#HowTo)
-2. [Modules](#ModulesPlugin)
-3. [Generic Classes](#GenericClassesModule)
    
-  3.1 [Singleton Register](#GenericClassesModule-SR)
-  3.2 [Object Pooler](#ObjectPooler)
-  3.3 [Event System](#EventSystem) 
-   3.3.1 [EventS](#EventSystem-Events)
-   3.3.2 [Event Register](#EventSystem-EventRegister)
-   3.3.3 [Event Sequence](#EventSystem-EventSequence)
-  3.4 [Condition System](#ConditionSystem) 
-  3.5 [Game Data](#GameData)
-  3.6 [Data Structures](#DataStructures) 
-  3.7 [Debug System](#DebugSystem) 
-5. [Generic Classes Debug](#GenericClassesDebugModule)
-6. [Generic Classes Editor](#GenericClassesEditorModule)
+2. [Modules](#ModulesPlugin)
+   
+3. [Generic Classes](#GenericClassesModule)
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1 [Singleton Register](#GenericClassesModule-SR)
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2 [Object Pooler](#ObjectPooler)
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3 [Event System](#EventSystem) 
+  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.1 [Events](#EventSystem-Events)
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.2 [Event Register](#EventSystem-EventRegister)
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.3 [Event Sequence](#EventSystem-EventSequence)
+   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4 [Condition System](#ConditionSystem) 
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5 [Game Data](#GameData)
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.6 [Data Structures](#DataStructures) 
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.7 [Debug System](#DebugSystem) 
+  
+4. [Generic Classes Debug](#GenericClassesDebugModule)
+5. [Generic Classes Editor](#GenericClassesEditorModule)
   
 <a name="HowTo"></a>
 ## How to add this plugin to your project
