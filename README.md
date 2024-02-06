@@ -128,8 +128,8 @@ An example of how to use them by delegates:
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/8e82e35c-a722-4963-9abd-909fbf32e914)
 
- <a name="EventSystem-EventRegister"></a>
- ##### Event Register
+<a name="EventSystem-EventRegister"></a>
+##### Event Register
 
 <a name="ConditionSystem"></a>
 #### Condition System
