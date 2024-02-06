@@ -178,12 +178,15 @@ There is one more method called **SetConditionData()**. A condition may **need a
 
 ![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/50960103-211f-4436-99e9-f3846c33ca5f)
 
-
 >[!Note]
 >To run condition sentences the method that should be called is CheckCondition() (it does more operations than call RunConditionSentence)
 
 >[!Note]
 >To implement condition sentences in **Blueprint** there is a class called **GC_BlueprintConditionSentence**  to inherit from it.
+
+Condition System provides two nodes called **Check Condition** and **Wait Condition Success** that can be useful in many situations:
+
+![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/502c09a5-06dc-4dd5-9ac5-b28a27aa5e5d)
 
 <a name="GameData"></a>
 #### Game Data
