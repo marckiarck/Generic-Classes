@@ -10,8 +10,8 @@ Repository with the generic classes that can be used in any Unreal Engine projec
   3.3 [Event System](#EventSystem)
   3.4 [Condition System](#ConditionSystem)
   3.5 [Game Data](#GameData)
-  3.5 [Data Structures](#DataStructures) 
-  3.5 [Debug System](#DebugSystem) 
+  3.6 [Data Structures](#DataStructures) 
+  3.7 [Debug System](#DebugSystem) 
 5. [Generic Classes Debug](#GenericClassesDebugModule)
 6. [Generic Classes Editor](#GenericClassesEditorModule)
   
