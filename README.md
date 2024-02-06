@@ -2,13 +2,13 @@
 Repository with the generic classes that can be used in any Unreal Engine project
 
 ## Table of Contents
-> 1. [How to add this plugin to your project](#HowTo)
-> 2. [Modules](#ModulesPlugin)
-> 3. [Generic Classes](#GenericClassesModule)
->    3.1 [Singleton Register](#GenericClassesModule-SR)
->   3.2 [Object Pooler](#ObjectPooler)
-> 4. [Generic Classes Debug](#GenericClassesDebugModule)
-> 5. [Generic Classes Editor](#GenericClassesEditorModule)
+ 1. [How to add this plugin to your project](#HowTo)
+2. [Modules](#ModulesPlugin)
+3. [Generic Classes](#GenericClassesModule)
+  3.1 [Singleton Register](#GenericClassesModule-SR)
+  3.2 [Object Pooler](#ObjectPooler)
+4. [Generic Classes Debug](#GenericClassesDebugModule)
+5. [Generic Classes Editor](#GenericClassesEditorModule)
   
 <a name="HowTo"></a>
 ## How to add this plugin to your project
