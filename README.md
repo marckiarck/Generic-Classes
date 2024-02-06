@@ -74,7 +74,7 @@ This system allows to create a **singleton** of every Unreal class (classes that
 >The singleton instances can be accesed throught **Blueprint:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/15031513-19f6-40d7-b0fd-152fdf3b80c5)
->
+
 >Can also be accessed in **code** calling the method:
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/dc61bae2-b599-402a-ac9f-d238e153afac)
@@ -93,7 +93,7 @@ The Object Pooler works with **UObjects** and **AActors** in different ways.
 >To create **UObjects** in **Blueperints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/87b78e35-3abd-4bba-b23e-34046b699b4a)
->
+
 >And in **code:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2da7a9d3-8ab2-4c87-a3d2-3350a94b4ded)
@@ -103,7 +103,7 @@ The Object Pooler works with **UObjects** and **AActors** in different ways.
 >To create **AActors** in **Blueprints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/f5fea255-d7f1-4093-bb4d-337401071290)
->
+
 >And in **code:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/a267c3eb-5289-4e0c-b6be-85a5f53f5891)
@@ -113,7 +113,7 @@ The method to **return the objects to the pool** is also different for **AActors
 >To destroy **UObjects** in **Blueprints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cd14e6cb-69ec-45b9-a75b-430c53dd719e)
->
+
 >And in **code:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/050617bb-90cf-49ff-8d6f-ddb3729b0ffa)
@@ -123,7 +123,7 @@ The method to **return the objects to the pool** is also different for **AActors
 >To destroy **AActors** in **Blueprints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/3140ff22-c089-42e3-8891-412ca585165b)
->
+
 >And in **code:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/6a3c393a-cd84-4441-a068-378140116925)
@@ -172,7 +172,7 @@ The events must be **registered** in the **Event Register** to **start working.*
 >This can be done in **Blueprints** calling the node **Register Event:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/b35c3c18-91e9-4bc5-908f-2c86c6501b41)
->
+
 >And in **code:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/78aea16c-8d0d-4575-9762-228f65410031)
@@ -234,7 +234,7 @@ Game Data has the methods **SaveData** and **GetData** to save and recover data.
 >This methods can be called in **Blueprints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/c70d2a80-367c-4a0a-be6d-371e35a6d894)
->
+
 >And in **code:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/43e99473-f681-42c5-a564-40bc7effc37f)
