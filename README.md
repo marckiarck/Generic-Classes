@@ -88,8 +88,10 @@ There is an **Unreal Interface** called **GC_Singleton** that can be inherited b
 ## Object Pooler
 An **object pooler** is a system that provides an instance getted from a **prepared pool of instanes**. This allows to create this instances when the project starts running and acces them in the future with out the need of create new objects (which affects to the **performance**). 
 
+### Object creation
 The Object Pooler works with **UObjects** and **AActors** in different ways.
 
+#### Create UObjects
 >To create **UObjects** in **Blueperints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/87b78e35-3abd-4bba-b23e-34046b699b4a)
@@ -98,8 +100,7 @@ The Object Pooler works with **UObjects** and **AActors** in different ways.
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/2da7a9d3-8ab2-4c87-a3d2-3350a94b4ded)
 
-----------------------------------------------------
-
+#### Spawn Actors
 >To create **AActors** in **Blueprints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/f5fea255-d7f1-4093-bb4d-337401071290)
@@ -108,8 +109,10 @@ The Object Pooler works with **UObjects** and **AActors** in different ways.
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/a267c3eb-5289-4e0c-b6be-85a5f53f5891)
 
+### Object destruction
 The method to **return the objects to the pool** is also different for **AActors** and **UObjects.**
 
+#### Destroy UObjects
 >To destroy **UObjects** in **Blueprints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/cd14e6cb-69ec-45b9-a75b-430c53dd719e)
@@ -118,8 +121,7 @@ The method to **return the objects to the pool** is also different for **AActors
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/050617bb-90cf-49ff-8d6f-ddb3729b0ffa)
 
-----------------------------------------------------
-
+#### Despawn Actors
 >To destroy **AActors** in **Blueprints:**
 >
 >![image](https://github.com/marckiarck/Generic-Classes/assets/13780925/3140ff22-c089-42e3-8891-412ca585165b)
